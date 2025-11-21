@@ -1,0 +1,24 @@
+name: firmflow
+description: Production standard firm management application.
+publish_to: 'none'
+version: 2.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # State Management
+  provider: ^6.0.5
+  # Data Persistence
+  shared_preferences: ^2.2.0
+  # Date & Currency Formatting
+  intl: ^0.18.1
+  # PDF Generation & Printing
+  pdf: ^3.10.4
+  printing: ^5.11.0
+  path_provider: ^2.1.1
+
+flutter:
+  uses-material-design: true
