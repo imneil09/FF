@@ -9,16 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # State Management
-  provider: ^6.0.5
-  # Data Persistence
-  shared_preferences: ^2.2.0
-  # Date & Currency Formatting
-  intl: ^0.18.1
-  # PDF Generation & Printing
-  pdf: ^3.10.4
-  printing: ^5.11.0
-  path_provider: ^2.1.1
+  get: ^4.6.6           # State Management
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  intl: ^0.19.0         # Formatting
+  pdf: ^3.10.4          # PDF Generation
+  printing: ^5.11.0     # PDF Printing
 
 flutter:
   uses-material-design: true
