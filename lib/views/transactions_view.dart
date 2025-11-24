@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 class TransactionsView extends StatelessWidget {
   final tCtrl = Get.find<TransactionController>();
   final iCtrl = Get.find<InventoryController>();
-  final pCtrl = Get.put(PartyController());
+  final pCtrl = Get.find<PartyController>();
 
   @override
   Widget build(BuildContext context) {
