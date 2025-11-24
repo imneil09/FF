@@ -1,20 +1,31 @@
 name: firmflow
-description: Production standard firm management application.
+description: "A new Flutter project."
 publish_to: 'none'
-version: 2.0.0
+version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  get: ^4.6.6           # State Management
-  firebase_core: ^2.24.2
-  cloud_firestore: ^4.14.0
-  intl: ^0.19.0         # Formatting
-  pdf: ^3.10.4          # PDF Generation
-  printing: ^5.11.0     # PDF Printing
+  cupertino_icons: ^1.0.2
+  # State Management
+  get: ^4.6.6
+  # Firebase
+  firebase_core: ^3.6.0
+  cloud_firestore: ^5.4.0
+  # Utils
+  intl: ^0.19.0
+  uuid: ^4.2.2
+  # PDF Generation
+  pdf: ^3.10.4
+  printing: ^5.11.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true

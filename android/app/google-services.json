@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "923860165910",
+    "project_id": "firmflow-2efc0",
+    "storage_bucket": "firmflow-2efc0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923860165910:android:54144fbcfbfda42c205c37",
+        "android_client_info": {
+          "package_name": "com.example.firmflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuM_a42ztAV7Z90eDS8Z4FYcKU8OBePu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
