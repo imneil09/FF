@@ -1,16 +1,115 @@
-# firmflow
+🚀 FirmFlow
 
-A new Flutter project.
+The Ultimate Business Management & Billing Solution for Flutter.
 
-## Getting Started
+FirmFlow is a powerful, offline-capable (via Firestore persistence) mobile ERP application designed to streamline daily business operations. From managing inventory and tracking transactions to generating professional PDF invoices, FirmFlow handles it all with a modern, intuitive UI.
 
-This project is a starting point for a Flutter application.
+✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+🏢 Multi-Company Management
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Seamlessly create and switch between multiple firms.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Track independent opening balances (Cash & Bank) for each entity.
+
+📦 Smart Inventory
+
+Real-time stock tracking.
+
+Manage products with HSN codes, buy prices, and estimated sell prices.
+
+Visual low-stock indicators.
+
+💰 Transactions & Ledger
+
+Sales: Record sales with automatic stock deduction.
+
+Expenses: Track business operational costs.
+
+Payment Modes: Support for Cash, Bank, and Credit transactions.
+
+Live Dashboard: Instant view of current Cash-in-Hand and Bank Balance.
+
+👥 Party Management
+
+Maintain a directory of Customers and Vendors.
+
+Store GSTIN and contact details for seamless billing.
+
+📄 Instant Invoicing
+
+Generate professional PDF Invoices automatically upon recording a sale.
+
+Print or share invoices directly from the app.
+
+🛠️ Tech Stack
+
+Framework: Flutter (Dart)
+
+State Management: GetX
+
+Backend: Firebase Firestore
+
+PDF Generation: pdf & printing
+
+📸 Screenshots
+
+Dashboard
+
+Inventory
+
+New Sale
+
+(Place Screenshot Here)
+
+(Place Screenshot Here)
+
+(Place Screenshot Here)
+
+🚀 Getting Started
+
+Prerequisites
+
+Flutter SDK 3.2.3 or higher.
+
+A Firebase project configured.
+
+Installation
+
+Clone the repository
+
+git clone [https://github.com/yourusername/firmflow.git](https://github.com/yourusername/firmflow.git)
+cd firmflow
+
+
+Install Dependencies
+
+flutter pub get
+
+
+Firebase Setup
+
+Ensure google-services.json is placed in android/app/.
+
+Run flutterfire configure (optional, for cross-platform support).
+
+Run the App
+
+flutter run
+
+
+🤝 Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any enhancements.
+
+Fork the Project
+
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+
+Push to the Branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+Built with ❤️ using Flutter.
