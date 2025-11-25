@@ -21,23 +21,62 @@ class CompanySetupView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Setup New Firm")),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(controller: nameC, decoration: const InputDecoration(labelText: "Firm Name")),
-            TextField(controller: gstinC, decoration: const InputDecoration(labelText: "GSTIN")),
-            TextField(controller: addressC, decoration: const InputDecoration(labelText: "Address")),
-            TextField(controller: phoneC, decoration: const InputDecoration(labelText: "Phone")),
-            const Divider(),
-            const Text("Opening Balances"),
-            TextField(controller: cashC, decoration: const InputDecoration(labelText: "Cash Opening Balance"), keyboardType: TextInputType.number),
-            TextField(controller: bankC, decoration: const InputDecoration(labelText: "Bank Opening Balance"), keyboardType: TextInputType.number),
-            const SizedBox(height: 20),
+            if (isInitialSetup)
+              const Padding(
+                padding: EdgeInsets.only(bottom: 24),
+                child: Text(
+                  "Welcome to FirmFlow!\nLet's get your business set up.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.indigo),
+                ),
+              ),
+
+            Card(
+              elevation: 0,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: BorderSide(color: Colors.grey.shade200)),
+              margin: EdgeInsets.zero,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(children: [
+                  TextField(controller: nameC, decoration: const InputDecoration(labelText: "Firm Name", prefixIcon: Icon(Icons.business))),
+                  const SizedBox(height: 16),
+                  TextField(controller: gstinC, decoration: const InputDecoration(labelText: "GSTIN (Optional)", prefixIcon: Icon(Icons.receipt_long))),
+                  const SizedBox(height: 16),
+                  TextField(controller: addressC, decoration: const InputDecoration(labelText: "Address", prefixIcon: Icon(Icons.location_on))),
+                  const SizedBox(height: 16),
+                  TextField(controller: phoneC, decoration: const InputDecoration(labelText: "Phone", prefixIcon: Icon(Icons.phone))),
+                ]),
+              ),
+            ),
+
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Text("Opening Balances", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.grey)),
+            ),
+
+            Card(
+              elevation: 0,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: BorderSide(color: Colors.grey.shade200)),
+              margin: EdgeInsets.zero,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(children: [
+                  TextField(controller: cashC, decoration: const InputDecoration(labelText: "Cash in Hand", prefixIcon: Icon(Icons.money)), keyboardType: TextInputType.number),
+                  const SizedBox(height: 16),
+                  TextField(controller: bankC, decoration: const InputDecoration(labelText: "Bank Balance", prefixIcon: Icon(Icons.account_balance)), keyboardType: TextInputType.number),
+                ]),
+              ),
+            ),
+            const SizedBox(height: 32),
             ElevatedButton(
                 onPressed: () {
                   if (nameC.text.isEmpty) {
-                    Get.snackbar("Error", "Firm Name is required");
+                    Get.snackbar("Required", "Firm Name is required", backgroundColor: Colors.red.shade100, colorText: Colors.red.shade900);
                     return;
                   }
                   final c = Company(
@@ -51,7 +90,6 @@ class CompanySetupView extends StatelessWidget {
                   );
                   ctrl.addCompany(c);
 
-                  // Only go back if we are in a navigation stack (not initial setup)
                   if (!isInitialSetup) {
                     Get.back();
                   }
