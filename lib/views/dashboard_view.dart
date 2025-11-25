@@ -8,15 +8,17 @@ import 'parties_view.dart';
 import 'company_setup_view.dart';
 
 class DashboardView extends StatelessWidget {
-  // Use Get.find because AppBinding already created them
-  final cCtrl = Get.find<CompanyController>();
-  final tCtrl = Get.find<TransactionController>();
+  // REMOVED field initializers from here to prevent early execution
 
   @override
   Widget build(BuildContext context) {
+    // Moved Get.find here. They will execute when the widget is built,
+    // which is AFTER AppBinding has run in main.dart.
+    final cCtrl = Get.find<CompanyController>();
+    final tCtrl = Get.find<TransactionController>();
+
     return Obx(() {
       if (cCtrl.companies.isEmpty) {
-        // Force create company. Pass true to indicate this is the initial setup.
         return CompanySetupView(isInitialSetup: true);
       }
 
@@ -25,7 +27,7 @@ class DashboardView extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: GestureDetector(
-              onTap: () => _showCompanySwitcher(),
+              onTap: () => _showCompanySwitcher(cCtrl), // Pass controller if needed
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(cCtrl.currentCompany.value?.name ?? "Loading..."),
                 Text("Tripura (16) - Tap to switch", style: TextStyle(fontSize: 10)),
@@ -37,7 +39,6 @@ class DashboardView extends StatelessWidget {
               Tab(icon: Icon(Icons.people), text: "Parties"),
             ]),
             actions: [
-              // Pass false (default) because this is a pushed route, so we CAN go back
               IconButton(
                   icon: const Icon(Icons.add_business),
                   onPressed: () => Get.to(() => CompanySetupView())
@@ -69,7 +70,7 @@ class DashboardView extends StatelessWidget {
     });
   }
 
-  void _showCompanySwitcher() {
+  void _showCompanySwitcher(CompanyController cCtrl) {
     Get.bottomSheet(Container(
       color: Colors.white,
       child: ListView(
